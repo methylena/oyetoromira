@@ -1,0 +1,859 @@
+/* --- Global Styles & Resets --- */
+:root {
+    /* Updated Trendy 2024 Palette with Yellow Accents */
+    --color-light-bg: #F9F9F9;        /* Very light almost white */
+    --color-dark-bg: #1A1A1A;         /* Deep charcoal/near black */
+    --color-dark-text: #2C2C2C;       /* Primary dark text */
+    --color-medium-text: #666666;     /* Secondary, softer text */
+    --color-light-text: #FFFFFF;      /* White for dark backgrounds */
+    --color-accent-yellow: #FFD700;   /* Bright Gold/Yellow */
+    --color-accent-yellow-dark: #DAA520; /* Slightly darker yellow for hover/contrast */
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links (if any on a page) */
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Inter for general readability */
+    line-height: 1.6;
+    color: var(--color-dark-text);
+    background-color: var(--color-light-bg);
+    overflow-x: hidden; /* Prevent horizontal scroll from marquee */
+}
+
+.container {
+    max-width: 1280px; /* Wider container, similar to Cora's site */
+    margin: 0 auto;
+    padding: 0 40px; /* Ample horizontal padding */
+}
+
+a {
+    color: var(--color-dark-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-accent-yellow);
+}
+
+/* Base Headings - Most will be overridden by specific classes */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-dark-text);
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+
+/* Specific font application for Italiana */
+.italiana-font {
+    font-family: 'Italiana', serif;
+    font-weight: normal; /* Italiana typically doesn't have bold variants, use normal */
+}
+
+.white-text {
+    color: var(--color-light-text) !important; /* Force white text */
+}
+
+.align-center {
+    text-align: center;
+}
+
+/* --- Header & Navigation --- */
+.main-header {
+    background-color: var(--color-light-bg); /* Light header */
+    padding: 25px 0;
+    position: sticky; /* Keeps header visible on scroll */
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Subtle shadow */
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Italiana', serif; /* Italiana for the logo */
+    font-size: 2.5em;
+    font-weight: normal;
+    color: var(--color-dark-text); /* Dark text for logo on light background */
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 35px; /* Spacing between nav items */
+}
+
+.nav-links li a {
+    color: var(--color-dark-text);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500; /* Medium weight */
+    font-size: 1em;
+    position: relative;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent-yellow);
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    width: 100%;
+}
+
+/* --- General Section Styles --- */
+.section-block {
+    padding: 100px 0; /* Consistent vertical padding */
+    background-color: var(--color-light-bg);
+}
+
+.section-dark-bg {
+    background-color: var(--color-dark-bg);
+}
+
+.section-title {
+    font-family: 'Italiana', serif; /* Italiana for section titles */
+    font-size: 3.8em; /* Adjusted size */
+    font-weight: normal;
+    text-align: center;
+    color: var(--color-dark-text);
+}
+
+.section-subtitle { /* For short taglines below titles */
+    font-family: 'Lora', serif;
+    font-size: 1.5em;
+    text-align: center;
+    color: var(--color-medium-text);
+    margin-top: -40px; /* Pull closer to title */
+    margin-bottom: 60px;
+    font-style: italic;
+}
+
+.body-text {
+    font-family: 'Lora', serif; /* Lora for main body text */
+    font-size: 1.15em;
+    line-height: 1.9; /* Increased line height for readability */
+    color: whitesmoke;
+    margin-bottom: 30px;
+}
+.body-text.large {
+    font-size: 1.3em; /* Slightly larger body text for main statements */
+}
+
+
+/* --- Home / About Me Section --- */
+.section-about {
+    position: relative;
+    padding: 100px 0; /* Vertical padding for content */
+    background-color: var(--color-light-bg);
+    overflow: hidden; /* Important for background image containment */
+    min-height: 80vh; /* Ensure it takes up sufficient screen space */
+    display: flex; /* Helps align content vertically */
+    align-items: center; /* Vertically center content */
+}
+
+.background-image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Ensure image doesn't overflow its wrapper */
+    z-index: 1; /* Behind content */
+}
+
+.background-pattern {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the entire area */
+    object-position: center;
+    opacity: 0.05; /* Very subtle */
+}
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: auto; /* Adjust height as needed */
+}
+.hero-content-wrapper {
+    position: relative;
+    z-index: 2; /* Content above background */
+    display: flex;
+    align-items: flex-start; /* Align content to the top */
+    gap: 80px; /* Ample space between text and image */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.hero-content-wrapper .text-content {
+    flex: 3; /* Text takes more width */
+    min-width: 300px;
+    padding-right: 40px; /* Space between text and image */
+}
+.text-content {
+    margin-left: 40px;
+    margin-top: 40px;
+}
+
+.hero-content-wrapper .image-content {
+    flex: 2; /* Image takes less width */
+    min-width: 300px;
+    text-align: center; /* Center the image */
+}
+
+.section-tagline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1.1em;
+    color: var(--color-accent-yellow);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.main-heading {
+    font-size: 4.8em; /* Large heading like Cora's */
+    margin-bottom: 30px;
+    color: whitesmoke
+}
+
+.location {
+    font-family: 'Lora', serif; /* Elegant font for location */
+    font-size: 1.3em;
+    color: var(--color-medium-text);
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.profile-photo {
+    max-width: 100%; /* Responsive image */
+    height: auto;
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 3px solid var(--color-accent-yellow); /* Accent border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* --- Running Text for Roles --- */
+.roles-running-text-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    height: 2.5em; /* Enough height for text */
+    margin-bottom: 30px; /* Space below marquee */
+    background-color: var(--color-dark-bg); /* Dark background for the marquee */
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    padding: 0 15px; /* Inner padding */
+}
+
+.roles-running-text {
+    display: inline-block;
+    animation: rolesMarquee 25s linear infinite; /* Adjust duration as needed */
+    font-size: 1.3em;
+    font-weight: 500; /* Inter font weight */
+    color: var(--color-accent-yellow); /* Yellow accent for roles */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-left: 0; /* No initial left indent */
+}
+
+@keyframes rolesMarquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); } /* Scrolls half of the duplicated content */
+}
+
+/* --- CTA Button --- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-accent-yellow);
+    color: var(--color-dark-bg); /* Dark text on yellow */
+    padding: 18px 40px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    border: 2px solid var(--color-accent-yellow);
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    color: var(--color-accent-yellow-dark);
+    border-color: var(--color-accent-yellow-dark);
+}
+
+/* --- What I Do Section Grid --- */
+.grid-services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px; /* Space between grid items */
+    margin-top: 50px;
+    margin-bottom: 80px; /* Space before general CTA */
+}
+
+.service-item {
+    background-color: var(--color-light-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.service-item h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: var(--color-dark-text);
+}
+
+.service-item p {
+    font-family: 'Lora', serif;
+    font-size: 1.05em;
+    line-height: 1.7;
+    color: var(--color-medium-text);
+    margin-bottom: 20px; /* Space before link */
+}
+
+.service-item .details-link {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: var(--color-accent-yellow);
+    transition: color 0.3s ease;
+}
+
+.service-item .details-link a {
+    color: inherit; /* Inherit color from parent .details-link */
+}
+
+.service-item .details-link a:hover {
+    color: var(--color-accent-yellow-dark);
+}
+
+.call-to-action-general {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3em;
+    font-weight: 500;
+    color: var(--color-dark-text);
+    line-height: 1.5;
+}
+
+/* --- Content Split (for Museum, Brands, Producing pages) --- */
+.content-split {
+    display: flex;
+    align-items: flex-start; /* Align content to top */
+    gap: 80px; /* Space between blocks */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    margin-bottom: 60px; /* Space after split content */
+}
+
+.content-split .text-block {
+    flex: 1; /* Both take equal space */
+    min-width: 300px;
+}
+
+.content-split .media-placeholder {
+    flex: 1;
+    min-width: 300px;
+    background-color: rgba(0,0,0,0.05); /* Light gray placeholder */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px; /* Placeholder height */
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    color: var(--color-medium-text);
+    font-size: 1.2em;
+    border: 1px dashed var(--color-medium-text);
+}
+/* If on dark background, make placeholder darker */
+.section-dark-bg .content-split .media-placeholder {
+    background-color: rgba(255,255,255,0.05);
+    border: 1px dashed rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.6);
+}
+
+
+.content-split.reverse-order {
+    flex-direction: row-reverse; /* Reverses order of blocks */
+}
+
+.text-block p.body-text {
+    margin-bottom: 25px; /* More space */
+}
+
+.sub-heading-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1.2em;
+    color: var(--color-dark-text);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+.white-text.sub-heading-text {
+    color: var(--color-light-text);
+}
+
+
+.text-block ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+    margin-bottom: 30px;
+}
+
+.text-block ul li {
+    font-family: 'Lora', serif;
+    font-size: 1.05em;
+    line-height: 1.8;
+    color: var(--color-medium-text);
+    position: relative;
+    padding-left: 25px; /* Space for custom bullet */
+    margin-bottom: 5px;
+}
+.white-text.text-block ul li {
+    color: var(--color-light-text);
+}
+
+.text-block ul li::before {
+    content: '—'; /* Custom dash bullet */
+    color: var(--color-accent-yellow);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.example-text {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.05em;
+    color: var(--color-medium-text);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.call-to-action-section-end { /* For specific page CTAs like "Let's make exhibition speak" */
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1.3em;
+    color: var(--color-accent-yellow);
+    margin-top: 40px;
+    line-height: 1.4;
+    text-align: center;
+}
+.white-text.call-to-action-section-end {
+    color: var(--color-accent-yellow); /* Still yellow on dark bg */
+}
+
+
+/* --- Portfolio Section --- */
+.portfolio-category-group {
+    margin-bottom: 100px; /* More space between main categories */
+    padding-top: 40px; /* Space from previous content */
+    border-top: 1px solid rgba(255,255,255,0.1); /* Subtle white line for dark sections */
+}
+.portfolio-category-group:first-of-type {
+    border-top: none; /* No border on first group */
+    margin-top: 60px; /* Space from section title */
+}
+
+
+.portfolio-category-group h3 {
+    font-family: 'Italiana', serif;
+    font-size: 2.8em; /* Slightly smaller than section title, larger than h4 */
+    text-align: center;
+    margin-bottom: 40px; /* Space below category title */
+}
+
+.responsibilities-block {
+    background-color: rgba(255,255,255,0.05); /* Light translucent background for responsibilities */
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 50px; /* Space below responsibilities */
+}
+
+.responsibilities-header {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: var(--color-light-text); /* White on dark background */
+}
+
+.responsibilities-list {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2-3 columns for bullets */
+    gap: 15px 30px; /* Row and column gap */
+}
+
+.responsibilities-list li {
+    font-family: 'Lora', serif;
+    font-size: 1em;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 25px; /* Space for bullet */
+}
+
+.responsibilities-list li::before {
+    content: '—'; /* Custom dash bullet */
+    color: var(--color-accent-yellow);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    top: 0; /* Align with text baseline */
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Two columns, adjust as needed */
+    gap: 50px; /* Space between columns */
+}
+
+.project-list-column {
+    /* Styles for each column */
+}
+
+.project-list-column.full-width-column {
+    grid-column: 1 / -1; /* Make this column span full width on grid */
+}
+
+.column-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.6em;
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 2px solid rgba(255,255,255,0.1); /* Subtle separator */
+    padding-bottom: 10px;
+}
+
+.project-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.project-list li {
+    font-family: 'Lora', serif;
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 12px; /* Space between project items */
+    position: relative;
+    padding-left: 25px; /* Space for bullet */
+}
+
+.project-list li span { /* For the year */
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: var(--color-accent-yellow); /* Yellow year */
+    margin-right: 8px; /* Space after year */
+    display: inline-block; /* Keep year with text on same line */
+    min-width: 80px; /* Give years consistent spacing */
+}
+
+.project-list li::before {
+    content: '•'; /* Simple dot bullet */
+    color: var(--color-accent-yellow);
+    position: absolute;
+    left: 0;
+    top: 0.1em; /* Adjust to align with text baseline */
+    font-size: 1.2em; /* Make dot slightly larger */
+}
+
+
+.contact-cta-general { /* Used on portfolio page to direct to contact */
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-top: 60px;
+    line-height: 1.5;
+    color: var(--color-light-text); /* White on dark background */
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    padding: 100px 0;
+    background-color: var(--color-dark-bg); /* Dark background for contact */
+    color: var(--color-light-text);
+    text-align: center;
+}
+
+.contact-info {
+    margin-top: 50px;
+}
+
+.contact-name {
+    font-family: 'Italiana', serif;
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: var(--color-light-text);
+}
+
+.contact-location {
+    font-family: 'Lora', serif;
+    font-size: 1.3em;
+    color: var(--color-light-text);
+    margin-bottom: 30px;
+}
+
+.contact-detail {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.contact-detail a {
+    color: var(--color-light-text);
+    transition: color 0.3s ease;
+}
+
+.contact-detail a:hover {
+    color: var(--color-accent-yellow);
+}
+
+/* Semantic UI Icon Styling */
+.contact-detail a i.icon {
+    margin-right: 10px; /* Space between icon and text */
+    color: var(--color-accent-yellow); /* Yellow icon color */
+    transition: color 0.3s ease;
+}
+.contact-detail a:hover i.icon {
+    color: var(--color-accent-yellow-dark);
+}
+
+
+.social-links-contact {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Space between icons */
+}
+
+.social-links-contact .icon {
+    font-size: 2.5em; /* Large icons */
+    color: var(--color-light-text);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links-contact .icon:hover {
+    color: var(--color-accent-yellow);
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+
+/* --- Footer --- */
+footer {
+    background-color: var(--color-dark-bg);
+    color: var(--color-light-text);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9em;
+    border-top: 1px solid rgba(255,255,255,0.05); /* Subtle line */
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 30px;
+    }
+    .main-heading {
+        font-size: 4em;
+    }
+    .section-title {
+        font-size: 3.2em;
+    }
+    .project-grid {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    }
+}
+
+@media (max-width: 992px) {
+    .main-nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    .main-header {
+        padding: 15px 0;
+    }
+
+    .hero-content-wrapper {
+        flex-direction: column; /* Stack text and image on medium screens */
+        align-items: center;
+        text-align: center;
+        gap: 60px;
+    }
+    .hero-content-wrapper .text-content {
+        padding-right: 0;
+    }
+    .hero-content-wrapper .image-content {
+        order: -1; /* Place image above text when stacked */
+    }
+    .main-heading {
+        font-size: 3.5em;
+    }
+    .roles-running-text {
+        font-size: 1.2em;
+    }
+    .profile-photo {
+        max-width: 350px; /* Limit image size for smaller screens */
+    }
+
+    .section-title {
+        font-size: 2.8em;
+    }
+    .grid-services {
+        gap: 30px;
+    }
+    .portfolio-category-group {
+        margin-bottom: 80px;
+    }
+    .portfolio-category-group h3 {
+        font-size: 2.2em;
+    }
+    .responsibilities-list {
+        grid-template-columns: 1fr; /* Stack responsibility bullets */
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 25px;
+    }
+    .logo {
+        font-size: 2em;
+    }
+    .nav-links li a {
+        font-size: 0.95em;
+    }
+    .main-heading {
+        font-size: 3em;
+    }
+    .roles-running-text {
+        font-size: 1em;
+    }
+    .profile-photo {
+        max-width: 300px;
+    }
+    .section-title {
+        font-size: 2.5em;
+    }
+    .body-text, .location, .service-item p, .responsibilities-list li, .project-list li {
+        font-size: 1em;
+    }
+    .cta-button {
+        padding: 15px 30px;
+        font-size: 1em;
+    }
+    .contact-name {
+        font-size: 2.5em;
+    }
+    .contact-detail {
+        font-size: 1.1em;
+    }
+    .social-links-contact .icon {
+        font-size: 2em;
+    }
+}
+.hero-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    object-fit: cover; /* Ensures the image covers the section */
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    .logo {
+        font-size: 1.8em;
+    }
+    .nav-links {
+        gap: 10px;
+    }
+    .main-heading {
+        font-size: 2.5em;
+    }
+    .roles-running-text {
+        font-size: 0.85em;
+        height: 2em; /* Smaller height for smaller text */
+    }
+    .profile-photo {
+        max-width: 250px;
+        margin-bottom: 30px; /* Extra space from text when stacked */
+    }
+    .section-tagline {
+        font-size: 1em;
+    }
+    .section-title {
+        font-size: 2em;
+        margin-bottom: 40px;
+    }
+    .portfolio-category-group h3 {
+        font-size: 1.8em;
+    }
+    .column-title {
+        font-size: 1.4em;
+    }
+    .project-list li, .responsibilities-list li {
+        font-size: 0.95em;
+    }
+    .contact-name {
+        font-size: 2em;
+    }
+    .contact-detail {
+        font-size: 1em;
+    }
+    .social-links-contact .icon {
+        font-size: 1.8em;
+    }
+    .section-block {
+        padding: 60px 0;
+    }
+} 
