@@ -104,6 +104,7 @@ h6 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: row-reverse
 }
 
 .logo {
@@ -428,7 +429,9 @@ h6 {
     color: var(--color-light-text);
     margin-bottom: 20px;
 }
-
+b {
+    color: var(--color-accent-yellow)
+}
 .service-item .details-link {
     font-family: 'Inter', sans-serif;
     font-weight: 600;
@@ -559,7 +562,13 @@ h6 {
     color: var(--color-accent-yellow);
     margin-bottom: 25px;
 }
-
+.detail-title-small {
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    color: var(--color-accent-yellow);
+    margin-bottom: 25px;
+}
 .detail-content {
     font-family: 'Lora', serif;
     font-size: 1.1em;
@@ -639,7 +648,7 @@ h6 {
 }
 
 .text-block ul li::before {
-    content: '—';
+    content: '*';
     /* Custom dash bullet */
     color: var(--color-accent-yellow);
     position: absolute;
@@ -746,7 +755,7 @@ h6 {
 }
 
 .responsibilities-list li::before {
-    content: '—';
+    content: '*';
     /* Custom dash bullet */
     color: var(--color-accent-yellow);
     position: absolute;

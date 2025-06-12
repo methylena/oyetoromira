@@ -1,0 +1,367 @@
+/* --- Global Styles & Resets --- */
+:root {
+    /* Trendy 2024 Palette */
+    --color-background-light: #FBFBFB; /* Almost white */
+    --color-background-dark: #1A1A1A; /* Near-black */
+    --color-text-dark: #2C2C2C;      /* Deep charcoal */
+    --color-text-medium: #555555;    /* Softer dark gray */
+    --color-accent-gold: #D4AF37;   /* Sophisticated gold */
+    --color-accent-hover: #FFD700; /* Brighter gold for hover */
+
+    /* Font Families */
+    --font-heading: 'Inter', sans-serif;
+    --font-body: 'Lora', serif; /* Used for more elegant touches */
+    --font-secondary: 'Inter', sans-serif; /* For general clean text */
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-secondary);
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    background-color: var(--color-background-light);
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px; /* Consistent padding */
+}
+
+a {
+    color: var(--color-text-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-accent-gold);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-text-dark);
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+
+/* --- Header & Navigation --- */
+.main-header {
+    background-color: transparent; /* Initially transparent for hero overlay */
+    padding: 25px 0;
+    position: absolute; /* Position over the hero image */
+    width: 100%;
+    z-index: 100; /* Ensure it's above other content */
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading); /* Using Inter for logo now, for boldness */
+    font-size: 2.2em; /* Slightly larger */
+    font-weight: 700;
+    color: var(--color-background-light); /* White/light color for logo over dark hero */
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Space out links */
+}
+
+.nav-links li a {
+    color: var(--color-background-light); /* White/light color for nav links over dark hero */
+    font-weight: 500;
+    font-size: 1.1em;
+    position: relative; /* For underline effect */
+    padding-bottom: 5px;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent-gold);
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    width: 100%;
+}
+
+/* --- Hero Section (Home Page) --- */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+    display: flex;
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+    text-align: center;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    z-index: 1;
+    filter: grayscale(80%) brightness(60%) contrast(120%); /* Black and white, slightly darker, more contrast */
+}
+
+.hero-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    color: var(--color-background-light); /* White text over dark background */
+    max-width: 900px; /* Limit content width */
+    padding: 20px;
+}
+
+.hero-name {
+    font-family: var(--font-heading);
+    font-size: 5em; /* Large heading like Cora's */
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.hero-location {
+    font-size: 1.2em;
+    font-family: var(--font-body); /* More elegant font for location */
+    margin-bottom: 30px;
+}
+
+.about-summary {
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+
+.about-summary p {
+    font-family: var(--font-body); /* Elegant font for summary */
+    font-size: 1.3em;
+    line-height: 1.5;
+    font-style: italic; /* Slightly italic for a creative touch */
+    color: rgba(255, 255, 255, 0.9); /* Slightly translucent white */
+}
+
+/* --- Running Text for Roles (Director, Producer, etc.) --- */
+.roles-running-text-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    height: 2em; /* Ensure enough height for text */
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle background */
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex; /* Use flexbox to center content vertically */
+    align-items: center;
+}
+
+.roles-running-text {
+    display: inline-block; /* Essential for animation */
+    padding-right: 100%; /* Ensures smooth loop */
+    animation: rolesMarquee 25s linear infinite; /* Adjust duration */
+    font-size: 1.5em; /* Larger roles text */
+    font-weight: 700; /* Bold roles text */
+    color: var(--color-accent-gold); /* Gold accent for roles */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Ensure spaces between duplicated content */
+.roles-running-text span:first-child { margin-right: 2em; /* Space between repeated text */ }
+
+
+@keyframes rolesMarquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); } /* Move half of the duplicated content */
+}
+
+/* --- CTA Button --- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-accent-gold);
+    color: var(--color-background-dark); /* Dark text on gold */
+    padding: 15px 35px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 2px solid var(--color-accent-gold);
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    color: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+}
+
+/* --- Section Preview (for home page) --- */
+.section-preview {
+    padding: 80px 0;
+    text-align: center;
+    background-color: var(--color-background-light);
+}
+
+.section-preview h2 {
+    font-family: var(--font-heading);
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: var(--color-text-dark);
+}
+
+.service-list {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+.service-list p {
+    font-family: var(--font-body);
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: var(--color-text-medium);
+}
+
+.text-link {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--color-accent-gold);
+    border-bottom: 2px solid var(--color-accent-gold);
+    padding-bottom: 2px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.text-link:hover {
+    color: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--color-background-dark);
+    color: var(--color-background-light);
+    text-align: center;
+    padding: 40px 0;
+    font-size: 0.9em;
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-links img {
+    width: 28px; /* Size of social icons */
+    height: 28px;
+    filter: invert(100%); /* Make icons white */
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.social-links img:hover {
+    opacity: 1;
+    filter: invert(80%) sepia(100%) saturate(2000%) hue-rotate(30deg) brightness(120%); /* Gold tint on hover */
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+    .hero-name {
+        font-size: 4em;
+    }
+    .nav-links {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .nav-links {
+        flex-wrap: wrap; /* Allow links to wrap */
+        justify-content: center;
+        gap: 15px;
+    }
+    .hero-name {
+        font-size: 3em;
+    }
+    .roles-running-text {
+        font-size: 1.2em;
+    }
+    .about-summary p {
+        font-size: 1.1em;
+    }
+    .section-preview h2 {
+        font-size: 2.5em;
+    }
+    .service-list p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.8em;
+    }
+    .hero-name {
+        font-size: 2.5em;
+    }
+    .hero-location {
+        font-size: 1em;
+    }
+    .roles-running-text {
+        font-size: 1em;
+    }
+    .about-summary p {
+        font-size: 1em;
+    }
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    .nav-links li {
+        margin: 0 5px;
+    }
+}
