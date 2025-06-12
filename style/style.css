@@ -178,7 +178,7 @@ h6 {
     font-size: 1.2em;
     text-align: center;
     color: var(--color-light-text);
-  
+
     font-style: italic;
 }
 
@@ -238,34 +238,50 @@ h6 {
 .hero-section {
     position: relative;
     width: 100%;
-    height: auto;
-    /* Adjust height as needed */
+    /* Ensure it takes full width */
+    min-height: 100vh;
+    /* Occupy full viewport height */
+    display: flex;
+    align-items: center;
+    /* Vertically center content */
+    justify-content: center;
+    /* Horizontally center content */
+    overflow: hidden;
+    /* Hide overflowing elements like the background image */
+    padding: 100px 0; /* Add some padding to ensure content isn't stuck to edges */
 }
+
 
 .hero-content-wrapper {
     position: relative;
     z-index: 2;
     /* Content above background */
     display: flex;
-    align-items: flex-start;
-    /* Align content to the top */
+    align-items: center;
+    /* Align items in the center vertically */
+    justify-content: center; /* Center horizontally */
     gap: 80px;
     /* Ample space between text and image */
     flex-wrap: wrap;
     /* Allow wrapping on smaller screens */
+    width: 100%; /* Take full width of its parent */
+    max-width: 1280px; /* Constrain content width */
+    padding: 0 40px; /* Add horizontal padding for smaller screens */
 }
 
 .hero-content-wrapper .text-content {
-    flex: 3;
-    /* Text takes more width */
+    flex: 1;
+    /* Text takes proportional width */
     min-width: 300px;
-    padding-right: 40px;
-    /* Space between text and image */
+    /* Minimum width for text block */
+    padding-right: 0;
+    /* Removed padding here, manage via gap */
+    text-align: left; /* Default text alignment */
 }
 
-.text-content {
-    margin-left: 40px;
-    margin-top: 40px;
+.text-content { /* Removed margin-left and margin-top from here, let flexbox handle it */
+    margin-left: 0;
+    margin-top: 0;
 }
 
 .hero-content-wrapper .image-content {
@@ -302,9 +318,9 @@ h6 {
     font-style: italic;
 }
 
-.profile-photo {
-    max-width: 100%;
-    /* Responsive image */
+.profile-photo { /* Now applied to the mira.png image directly */
+    max-width: 80%;
+    /* Responsive image - ensures it fits within its container */
     height: auto;
     border-radius: 8px;
     /* Slightly rounded corners */
@@ -368,10 +384,12 @@ h6 {
 
 /* --- CTA Button --- */
 .cta-button {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     background-color: var(--color-accent-yellow);
     color: var(--color-dark-bg);
-    padding: 18px 40px;
+    padding: 4px 25px;
     border-radius: 50px;
     font-size: 1.1em;
     font-weight: 700;
@@ -429,9 +447,11 @@ h6 {
     color: var(--color-light-text);
     margin-bottom: 20px;
 }
+
 b {
     color: var(--color-accent-yellow)
 }
+
 .service-item .details-link {
     font-family: 'Inter', sans-serif;
     font-weight: 600;
@@ -562,6 +582,7 @@ b {
     color: var(--color-accent-yellow);
     margin-bottom: 25px;
 }
+
 .detail-title-small {
     font-family: 'Inter', sans-serif;
     font-size: 1em;
@@ -569,6 +590,7 @@ b {
     color: var(--color-accent-yellow);
     margin-bottom: 25px;
 }
+
 .detail-content {
     font-family: 'Lora', serif;
     font-size: 1.1em;
@@ -851,7 +873,8 @@ b {
 }
 
 .why-matters {
-    background: linear-gradient(180deg, rgb(0 0 0 / 44%) 0%, rgb(19 14 0 / 52%) 100%); border-radius: 15px;
+    background: linear-gradient(180deg, rgb(0 0 0 / 44%) 0%, rgb(19 14 0 / 52%) 100%);
+    border-radius: 15px;
     padding: 50px;
     margin: 60px 0;
     text-align: center;
@@ -1017,9 +1040,11 @@ footer {
         gap: 40px;
     }
 }
-
-
 @media (max-width: 992px) {
+    .container {
+        padding: 0 30px;
+    }
+
     .main-nav {
         flex-direction: column;
         gap: 20px;
@@ -1039,16 +1064,63 @@ footer {
         font-size: 2.8em;
     }
 
-    .branding-approach,
-    .why-matters,
-    .pricing-section {
-        padding: 35px;
+    /* Hero Section Specific Overrides for Mobile */
+    .hero-section {
+        min-height: auto; /* Allow height to adjust based on content */
+        padding: 20px 0; /* Adjust vertical padding */
     }
 
-    .detail-section {
-        padding: 30px;
+    .hero-content-wrapper {
+        flex-direction: column; /* Stack image and text vertically */
+        align-items: center; /* Center items when stacked */
+        gap: 40px; /* Adjust gap for stacked elements */
+        padding: 0 20px; /* Adjust horizontal padding */
+    }
+
+    .hero-content-wrapper .text-content {
+        text-align: center; /* Center text content */
+        order: 2; /* Put text below image on mobile */
+        width: 100%; /* Take full width */
+        min-width: unset; /* Remove min-width restriction */
+    }
+
+    .hero-content-wrapper .image-content { /* Target the new image wrapper */
+        order: 1; /* Put image above text on mobile */
+        width: 100%; /* Take full width */
+        min-width: unset; /* Remove min-width restriction */
+    }
+
+    .profile-photo { /* Target the image directly */
+        max-width: 70%; /* Make image smaller on tablets */
+        height: auto;
+    }
+
+    .main-heading {
+        font-size: 3.5em; /* Adjust main heading size */
+        margin-bottom: 20px;
+    }
+
+    .roles-running-text-container {
+        margin-bottom: 20px; /* Adjust margin */
+    }
+
+    #index-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 20px; /* Space between stacked buttons */
+        margin-top: 30px;
+    }
+
+    .cta-button {
+        width: 100%; /* Make buttons full width */
+      
+    }
+
+    /* Portfolio page adjustments (already present from previous responses, ensuring consistency) */
+    .portfolio-category-title {
+        font-size: 2.8em;
     }
 }
+
 
 @media (max-width: 768px) {
     .container {
@@ -1067,28 +1139,79 @@ footer {
         font-size: 2.5em;
     }
 
-    .branding-approach,
-    .why-matters,
-    .pricing-section {
-        padding: 25px;
+    /* Hero Section adjustments */
+    .profile-photo {
+        max-width: 80%;
+        /* Further adjust image size for smaller tablets */
     }
 
-    .detail-section {
-        padding: 25px;
+    .main-heading {
+        font-size: 3em;
+        /* Smaller heading for mobile */
     }
 
-    .approach-title,
-    .why-matters-title {
-        font-size: 1.5em;
+    .roles-running-text {
+        font-size: 1.1em;
+        /* Adjust marquee text size */
     }
 
-    .pricing-title {
-        font-size: 1.8em;
+    .pricing-subtitle {
+        font-size: 1.1em;
     }
 
     .cta-button {
         padding: 15px 30px;
         font-size: 1em;
+    }
+
+    /* Portfolio page adjustments */
+    .portfolio-category-title {
+        font-size: 2.5em;
+        margin-bottom: 30px;
+    }
+
+    .responsibilities-block {
+        padding: 25px;
+        margin-bottom: 30px;
+    }
+
+    .responsibilities-header {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+    }
+
+    .responsibilities-list {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .responsibilities-list li {
+        font-size: 0.95em;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .project-list li {
+        font-size: 1em;
+        line-height: 1.6;
+        padding-left: 20px;
+    }
+
+    .project-list li span {
+        min-width: 60px;
+    }
+
+    .project-list li::before {
+        font-size: 1em;
+        top: 0.05em;
+    }
+
+    .contact-cta-general {
+        font-size: 1.1em;
+        margin-top: 40px;
     }
 }
 
@@ -1100,9 +1223,9 @@ footer {
     height: 100%;
     z-index: 1;
     object-fit: cover;
-    /* Ensures the image covers the section */
+    /* Ensures the image covers the section without distortion */
+    opacity: 1; /* Consistent with previous background pattern */
 }
-
 @media (max-width: 480px) {
     .container {
         padding: 0 15px;
@@ -1125,36 +1248,40 @@ footer {
         font-size: 1.2em;
     }
 
-    .branding-approach,
-    .why-matters,
-    .pricing-section,
-    .final-cta {
+    /* Hero Section adjustments */
+    .profile-photo {
+        max-width: 100%; /* Full width image on small phones */
+    }
+
+    .main-heading {
+        font-size: 2.5em; /* Even smaller heading for mobile */
+    }
+
+    .roles-running-text {
+        font-size: 1em; /* Keep marquee text readable */
+    }
+
+    .pricing-subtitle {
+        font-size: 1em;
+    }
+
+    /* Portfolio page adjustments */
+    .portfolio-category-title {
+        font-size: 2em;
+    }
+    .responsibilities-block {
         padding: 20px;
     }
-
-    .detail-section {
-        padding: 20px;
+    .project-title {
+        font-size: 1.4em;
     }
-
-    .branding-details {
-        grid-template-columns: 1fr;
-        gap: 30px;
+    .project-description {
+        font-size: 0.9em;
     }
-
-    .detail-title {
-        font-size: 1.3em;
+    .cta-button-small {
+        font-size: 0.8em;
     }
-
-    .approach-title,
-    .why-matters-title {
-        font-size: 1.3em;
-    }
-
-    .pricing-title {
-        font-size: 1.6em;
-    }
-
-    .hero-content-wrapper {
-        padding: 60px 0;
+    .project-list li {
+        font-size: 0.9em;
     }
 }
