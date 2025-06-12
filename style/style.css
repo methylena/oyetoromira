@@ -248,7 +248,7 @@ h6 {
     /* Horizontally center content */
     overflow: hidden;
     /* Hide overflowing elements like the background image */
-    padding: 100px 0; /* Add some padding to ensure content isn't stuck to edges */
+    padding: 20px 0; /* Add some padding to ensure content isn't stuck to edges */
 }
 
 
