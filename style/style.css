@@ -34,7 +34,7 @@ body {
     /* Inter for general readability */
     line-height: 1.6;
     color: var(--color-dark-text);
-    background-color: var(--color-light-bg);
+    background-color: var(--color-light-bg);        
     overflow-x: hidden;
     /* Prevent horizontal scroll from marquee */
 }
@@ -169,7 +169,7 @@ h6 {
     font-size: 3.8em;
     font-weight: normal;
     text-align: center;
-    color: var(--color-light-text);
+    color: var(--color-accent-yellow);
     margin-bottom: 20px;
 }
 
