@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,17 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css">
     <link rel="stylesheet" href="style/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Italiana&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Italiana&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header class="main-header">
         <nav class="main-nav container">
             <div class="logo">Mira Oyetoro</div>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Home / About Me</a></li>
+                <li><a href="index.html" class="active">About Me</a></li>
                 <li><a href="what-i-do.html">Services</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -25,29 +29,78 @@
     <main>
         <section class="hero-section">
             <img src="images/background.png" alt="Subtle background pattern" class="hero-background-image">
-            
+
             <div class="hero-content-wrapper">
                 <div class="text-content">
                     <h1 class="main-heading italiana-font">Mira Oyetoro</h1>
-                    
+
                     <div class="roles-running-text-container">
                         <div class="roles-running-text">
-                            <span>Director ✧ Creative Producer ✧ Producer ✧ Production Coordinator ✧ Production Manager &nbsp;&nbsp;&nbsp;&nbsp;</span>
-                            <span>Director ✧ Creative Producer ✧ Producer ✧ Production Coordinator ✧ Production Manager &nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <span>Director ✧ Creative Producer ✧ Producer ✧ Production Coordinator ✧ Production Manager
+                                &nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <span>Director ✧ Creative Producer ✧ Producer ✧ Production Coordinator ✧ Production Manager
+                                &nbsp;&nbsp;&nbsp;&nbsp;</span>
                         </div>
                     </div>
 
-                    <p class="detail-title">Based in Wales <hr></p>
-                    <p class="pricing-subtitle">I create films that tell stories beyond objects - stories that connect, contextualise, and invite reflection. With 8+ years of experience across cultural media, branding, and documentary production, I collaborate with institutions, brands, and artists to shape meaningful screen-based experiences.
+                    <p class="detail-title">Based in Wales
                         <hr>
+                    </p>
+                    <p class="pricing-subtitle">
+                        I create films that tell stories beyond objects – stories that connect, contextualise, and
+                        invite reflection.
+                        With 10+ years of experience across cultural media, branding, and documentary production, I
+                        collaborate with
+                        institutions, brands, and artists to shape meaningful screen-based experiences. I work
+                        seamlessly within teams
+                        and specialise in both documentary and animated film projects.
+                        <div id="dots">...</div>
+                        <div id="more">
+                        <p class="pricing-subtitle"> This collaborative spirit and passion for impactful storytelling led me to pursue extensive
+                            international
+                            training, expanding my skills across documentary production, festival management, and
+                            animation workflows.
+                        </p>
+                            <div class="project-list-column full-width-column">
+                                <h3 class="approach-title">Education & Qualifications</h3>
+                                <ul class="format-list">
+                                    <li>International Ukrainian School</li>
+                                    <li>Kyiv National I. K. Karpenko-Kary Theatre, Cinema and Television University –
+                                        <em>Specialisation: Producer</em>
+                                    </li>
+                                </ul>
+
+                                <h3 class="approach-title">Workshops & Professional Programs</h3>
+                                <ul class="format-list">
+                                    <li>Festival Visions du Réel / Laboratory of Visual Culture (SUPSI) – IDW
+                                        Interactive Documentary Workshop (Nyon, Switzerland, 2018)</li>
+                                    <li>Ukrainian Documentary Preview Workshop (Kyiv, Ukraine, 2019)</li>
+                                    <li>Documentary Interactive Workshop (Prague, Czech Republic, 2019)</li>
+                                    <li>Documentary Film Workshop by Serhiy Bukovskiy, Kyiv Institute of Journalism
+                                        (Kyiv, 2023)</li>
+                                    <li>Amplify: Production Talent 2023 – Sheffield DocFest (Sheffield, UK, 2023)</li>
+                                    <li>EAVE CHANGE Co-Production Training Course 2023–2024 (Georgia, Moldova, Denmark)
+                                    </li>
+                                    <li>Animation Production Management – VIA University College, The Animation Workshop
+                                        (Denmark, 2024)</li>
+                                    <li>Global Media Makers Residency – Trieste Film Festival, When East Meets West
+                                        (Italy, 2025)</li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </p>
+                    <div id="index-buttons"> <button onclick="myFunction()" id="myBtn">Read more</button> </div>
+                    <hr>
                     </p>
                     <div id="index-buttons">
                         <a href="portfolio.html" class="cta-button">View My Portfolio</a>
                         <a href="what-i-do.html" class="cta-button"> Services</a>
                     </div>
                 </div>
-                
-                <div class="image-content"> <img src="images/mira.png" alt="Mira Oyetoro Professional Photo" class="profile-photo"> </div>
+
+                <div class="image-content"> <img src="images/mira.png" alt="Mira Oyetoro Professional Photo"
+                        class="profile-photo"> </div>
             </div>
         </section>
     </main>
@@ -57,8 +110,28 @@
             <p>&copy; 2025 Mira Oyetoro. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+        function myFunction() {
+            var dots = document.getElementById("dots");
+            var moreText = document.getElementById("more");
+            var otherText = document.getElementById("qualifications-section");
+            var btnText = document.getElementById("myBtn");
 
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btnText.innerHTML = "Read more";
+                moreText.style.display = "none";
+                otherText.style.display = "none";
+            } else {
+                dots.style.display = "none";
+                btnText.style.display = "none";
+                moreText.style.display = "inline";
+                otherText.style.display = "inline";
+            }
+        }
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>
 </body>
+
 </html>

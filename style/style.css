@@ -23,7 +23,7 @@
     margin: 0;
     padding: 0;
 }
-
+#more {display: none;}
 html {
     scroll-behavior: smooth;
     /* Smooth scrolling for anchor links (if any on a page) */
@@ -34,7 +34,7 @@ body {
     /* Inter for general readability */
     line-height: 1.6;
     color: var(--color-dark-text);
-    background-color: var(--color-light-bg);        
+    background-color: var(--color-light-bg);
     overflow-x: hidden;
     /* Prevent horizontal scroll from marquee */
 }
@@ -43,6 +43,8 @@ body {
     max-width: 1280px;
     /* Wider container, similar to Cora's site */
     margin: 0 auto;
+    position: relative;
+    z-index: 2; /* Поверх изображения */
     padding: 0 40px;
     /* Ample horizontal padding */
 }
@@ -159,7 +161,34 @@ h6 {
     /* Consistent vertical padding */
     background-color: var(--color-light-bg);
 }
+/* index qualif */
+.qualifications-section {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .qualifications-section h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFD700;
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+  
+  .qualifications-section ul {
+    padding-left: 20px;
+    margin: 0;
+    list-style-type: disc;
+  }
+  
+  .qualifications-section li {
+    margin-bottom: 6px;
+  }
 
+  /*  */
 .section-dark-bg {
     background-color: var(--color-dark-bg);
 }
@@ -272,7 +301,7 @@ h6 {
 .hero-content-wrapper .text-content {
     flex: 1;
     /* Text takes proportional width */
-    min-width: 300px;
+    min-width: 500px;
     /* Minimum width for text block */
     padding-right: 0;
     /* Removed padding here, manage via gap */
@@ -306,7 +335,7 @@ h6 {
     font-size: 4.8em;
     /* Large heading like Cora's */
     margin-bottom: 30px;
-    color: whitesmoke
+    color: var(--color-accent-yellow);
 }
 
 .location {
@@ -400,7 +429,44 @@ h6 {
     text-decoration: none;
     box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
 }
-
+.cta-button-contact {
+    margin-top: 40px;
+    display: flex;
+ 
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--color-accent-yellow);
+    color: var(--color-dark-bg);
+    padding: 4px 25px;
+    border-radius: 50px;
+    font-size: 1.1em;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: 2px solid var(--color-accent-yellow);
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+}
+#myBtn {
+    background-color: #FFD700; /* Bright yellow */
+    color: black;
+    font-size: smaller;
+    font-weight: bold;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  #myBtn:hover {
+    background-color: #e6c200;
+    transform: scale(0.5);
+  }
 .cta-button:hover {
     background-color: transparent;
     color: var(--color-accent-yellow);
@@ -556,7 +622,7 @@ b {
     font-size: 1.15em;
     line-height: 1.8;
     color: var(--color-light-text);
-    text-align: center;
+    text-align: left;
     max-width: 700px;
     margin: 0 auto;
 }
@@ -602,6 +668,7 @@ b {
 .format-list {
     list-style: none;
     padding-left: 0;
+    text-align: left; 
     margin-top: 20px;
 }
 
@@ -745,6 +812,7 @@ b {
     padding: 30px;
     border-radius: 8px;
     margin-bottom: 50px;
+    margin-top: 30px;
     /* Space below responsibilities */
 }
 
@@ -798,8 +866,13 @@ b {
 
 
 #index-buttons {
-    display: flex;
-    justify-content: space-evenly;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px; /* keeps space between buttons if you have multiple */
+        margin-top: 20px;
+    
 }
 
 .project-list-column.full-width-column {
@@ -877,13 +950,14 @@ b {
     border-radius: 15px;
     padding: 50px;
     margin: 60px 0;
-    text-align: center;
+    text-align: left;
     border: 1px solid rgba(255, 215, 0, 0.2);
 }
 
 .why-matters-title {
     font-family: 'Inter', sans-serif;
     font-size: 1.8em;
+    text-align: left; 
     font-weight: 600;
     color: var(--color-accent-yellow);
     margin-bottom: 30px;
@@ -913,6 +987,7 @@ b {
     font-weight: 700;
     color: var(--color-accent-yellow);
     margin-bottom: 30px;
+    
 }
 
 .pricing-subtitle {
@@ -920,16 +995,19 @@ b {
     font-size: 1.3em;
     font-style: italic;
     color: var(--color-light-text);
-    margin-bottom: 40px;
+    margin-left: 50px;
+
 }
 
 .pricing-description {
     font-family: 'Lora', serif;
     font-size: 1.1em;
     line-height: 1.8;
+    text-align: left; 
+    margin: 0 auto;
     color: var(--color-light-text);
     max-width: 600px;
-    margin: 0 auto 40px auto;
+
 }
 
 /* --- Contact Section --- */
@@ -1216,6 +1294,7 @@ footer {
 }
 
 .hero-background-image {
+    filter: brightness(70%);
     position: absolute;
     top: 0;
     left: 0;
@@ -1226,6 +1305,16 @@ footer {
     /* Ensures the image covers the section without distortion */
     opacity: 1; /* Consistent with previous background pattern */
 }
+.hero-backround-half-image {
+position: absolute;
+background-attachment: fixed;
+width: 100%;
+height: 460px;
+top: 0;
+object-fit: cover;
+z-index: 1;
+};
+
 @media (max-width: 480px) {
     .container {
         padding: 0 15px;
