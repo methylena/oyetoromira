@@ -1310,6 +1310,22 @@ footer {
     opacity: 1;
     pointer-events: none;
 }
+.hero-background-image-index {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-image: url(../images/background.png);
+    background-repeat: repeat-y;
+    background-position: top center;
+
+    filter: brightness(70%);
+    z-index: 1;
+    opacity: 1;
+    pointer-events: none;
+}
 .hero-backround-half-image {
 position: absolute;
 background-attachment: fixed;
