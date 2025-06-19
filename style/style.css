@@ -83,7 +83,10 @@ h6 {
     color: var(--color-light-text) !important;
     /* Force white text */
 }
-
+.yellow-text {
+    color: var(--color-accent-yellow) !important;
+    /* Force white text */
+}
 .align-center {
     text-align: center;
 }
@@ -1334,6 +1337,7 @@ height: 460px;
 top: 0;
 object-fit: cover;
 z-index: 1;
+filter: brightness(70%);
 };
 
 @media (max-width: 480px) {
