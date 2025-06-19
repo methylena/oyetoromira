@@ -295,6 +295,7 @@ h6 {
     /* Allow wrapping on smaller screens */
     width: 100%; /* Take full width of its parent */
     max-width: 1280px; /* Constrain content width */
+    height: 617.675px;
     padding: 0 40px; /* Add horizontal padding for smaller screens */
 }
 
@@ -306,6 +307,7 @@ h6 {
     padding-right: 0;
     /* Removed padding here, manage via gap */
     text-align: left; /* Default text alignment */
+    max-width: 700px;    
 }
 
 .text-content { /* Removed margin-left and margin-top from here, let flexbox handle it */
