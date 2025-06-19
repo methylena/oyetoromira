@@ -295,7 +295,6 @@ h6 {
     /* Allow wrapping on smaller screens */
     width: 100%; /* Take full width of its parent */
     max-width: 1280px; /* Constrain content width */
-    height: 617.675px;
     padding: 0 40px; /* Add horizontal padding for smaller screens */
 }
 
@@ -1294,18 +1293,22 @@ footer {
         margin-top: 40px;
     }
 }
-
 .hero-background-image {
-    filter: brightness(70%);
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    
+    background-image: url(../images/background.png);
+    background-repeat: repeat-y;
+    background-position: top center;
+    background-size: contain; /* ✅ scale image to full width, preserve aspect ratio */
+    
+    filter: brightness(70%);
     z-index: 1;
-    object-fit: cover;
-    /* Ensures the image covers the section without distortion */
-    opacity: 1; /* Consistent with previous background pattern */
+    opacity: 1;
+    pointer-events: none;
 }
 .hero-backround-half-image {
 position: absolute;
