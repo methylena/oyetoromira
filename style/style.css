@@ -1002,6 +1002,13 @@ b {
     margin-left: 50px;
 
 }
+.index-subtitle {
+    font-family: 'Lora', serif;
+    font-size: 1.3em;
+    font-style: italic;
+    color: var(--color-light-text);
+
+}
 
 .pricing-description {
     font-family: 'Lora', serif;
